@@ -7,15 +7,56 @@
 </head>
 <body>
     <script>
-function hello(name) {
-    if (name === '') {
-        document.write('Hello, world!');
-    } else {
-document.write(`Hello, ${name}!`)
+        // helloworld
+// function hello(name) { 
+//     if (name === '') {
+//         document.write('Hello, world!');
+//     } else {
+// document.write(`Hello, ${name}!`)
+// }
+// }
+// let name = 'Mustache';
+// hello(name);
+
+//madlib
+// function madLib(name, subject){
+//     return `${name}'s favorite subject in school is ${subject}.`;
+// }
+// let name = 'Anushka';
+// let subject = 'art';
+// document.write(madlib(name, subject));
+//tipcalc
+function tipAmount(bill, service){
+   if (service === 'good') {
+       return Number(bill * .20);
+   } else if (service === 'fair') {
+       return Number(bill * .15);
+   } else if (service ==='bad') {
+       return Number(bill *.10);
+   }
 }
+let bill = 100;
+let service = 'good';
+document.write(tipAmount(bill, service));
+//tipcalc2
+function totalAmount(bill, tipAmount) {
+    return Number(bill + tipAmount);
 }
-let name = 'Mustache';
-hello(name);
+document.write(totalAmount(bill, tipAmount(bill, service)))
+// tipcalc3
+function splitBill(bill, service, party) {
+    if (service === 'good') {
+       return Number((bill * .20 + bill)/party);
+   } else if (service === 'fair') {
+       return Number((bill * .15 + bill)/party);
+   } else if (service ==='bad') {
+       return Number((bill *.10 + bill)/party);
+   }
+}    
+let party = 5;
+document.write(splitBill(bill, service, party));
+
+
 </script>
 </body>
 </html>
