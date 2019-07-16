@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script language="javascript">
+// function printNumbers(){
+//   var i = 1;
+//   while(i <=10){
+//     document.write(i+"<br> ");
+//     i++;
+//   }
+// }
+// for(var a=1; a<11; a++){
+//     document.write(a+"<br> ");
+// }
+// above print numbers in for and while
+function printSquare() {
+  var size = 5,
+      i, j;
+for (i = 0; i <size; i++) {
+  for (j = 0; j <size; j++) {
+    document.write("*");
+  }
+  document.write("<br>");
+}
+}
+// makes a filled in square
+function printBox(width, height) {
+    let row = "";
+    for (i = 1; i <= height; i++) {
+        for (j = 1; j <= width; j++) {
+            if (i === 1 || i === height) {
+                row += "*";
+            }
+            else if (i > 1 && i < height) {
+                if (j === 1 || j === width) {
+                    row += "*";
+                }
+                else if (j > 1 && j < width) {
+                    row += " ";
+                }
+            }
+        }
+        console.log(row);
+        row = "";       
+    }
+}
+printBox(6, 4);
+//only works in console, not document write
+function printBanner(text) {
+  let row = "";
+  for(i=0; i<3; i++) {
+    for(j=0; j<(text.length + 4);j++) {
+      if( i===0 || i===2) {
+        row += "*";
+      }
+      else if (i===1) {
+        row = `* ${text} *`;
+      }
+    }
+    console.log(row);
+    row="";
+  }
+}
+printBanner("Welcome to Digital Crafts")
+//only works in consolelog
+function factors(number) {
+  const numFactors = number => Array
+    .from(Array(number + 1), (_,i) => i)
+    .filter(i => number %i == 0)
+  console.log(numFactors(number))
+}
+factors(36)
+//factors in console log can switch out console.log to work in document.write
+var cipher = function(str, amount) {
+  if (amount < 0)
+    return cipher(str, amount +26);
+  var output = '';
+  for (var i = 0; i < str.length; i ++) {
+    var c = str[i];
+    if (c.match(/[a-z]/i)) {
+      var code = str.charCodeAt(i);
+      if ((code >= 65) && (code <= 90))
+        c = String.fromCharCode(((code - 65 + amount)% 26) + 65);
+      else if ((code >= 97) && (code <= 122))
+        c = String.fromCharCode(((code - 97 + amount) % 26) + 97);
+    }
+    output += c;
+  }
+  return output;
+}
+cipher("Genius without education is like silver in the mine", 13)
+//cipher, found this through github, and to be honest, i don't understand it
+// but it prints out exactly like it's supposed to.
+var decipher = function(str, amount) {
+  if (amount < 0)
+    return decipher(str, amount +26);
+  var output = '';
+  for (var i = 0; i < str.length; i ++) {
+    var c = str[i];
+    if (c.match(/[a-z]/i)) {
+      var code = str.charCodeAt(i);
+      if ((code >= 65) && (code <= 90))
+        c = String.fromCharCode(((code - 65 + amount)% 26) + 65);
+      else if ((code >= 97) && (code <= 122))
+        c = String.fromCharCode(((code - 97 + amount) % 26) + 97);
+    }
+    output += c;
+  }
+  return output;
+}
+decipher("Travhf jvgubhg rqhpngvba vf yvxr fvyire va gur zvar", 13)
+// just changing the word cipher to decipher made it work.
+
+let leetDictionary = {
+A: 4,
+E: 3,
+G: 6,
+I: 1,
+O: 0,
+S: 5,
+T: 7,
+}
+
+function leetspeak(originalString) {
+    let result = '';
+
+    // loop through each letter in origional
+    // if its in the dictionary, and if it is
+    // put its value in `result`
+    for (let i = 0; i < originalString.length; i++) {
+        let theLetter = originalString[i].toUpperCase();
+        if (leetDictionary[theLetter] !== undefined) {
+            result += leetDictionary[theLetter]
+        } else {
+            result += theLetter
+        }
+    }
+    return result;
+}
+leetspeak('leet')
+//leetspeak dictionary
+
+
+
+    </script>
+</body>
+</html>
